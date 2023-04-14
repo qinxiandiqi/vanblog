@@ -189,6 +189,17 @@ const defaultMeta: MetaProps = {
 };
 
 export async function getPublicMeta(): Promise<PublicMetaProp> {
+    if (process?.env?.isBuild == "t") {
+      console.log("构建环境，采用默认值");
+      return {
+        version: version,
+        totalWordCount: 0,
+        tags: [],
+        menus: defaultMenu,
+        totalArticles: 0,
+        meta: defaultMeta,
+      };
+   }
   try {
     const url = `${config.baseUrl}api/public/meta`;
     const res = await fetch(url);
@@ -222,6 +233,10 @@ export async function getPublicMeta(): Promise<PublicMetaProp> {
   }
 }
 export async function getAllCustomPages(): Promise<CustomPageList[]> {
+    if (process?.env?.isBuild == "t") {
+    console.log("构建环境，采用默认值");
+    return [];
+   }
   try {
     const url = `${config.baseUrl}api/public/customPage/all`;
     const res = await fetch(url);
@@ -244,6 +259,10 @@ export async function getAllCustomPages(): Promise<CustomPageList[]> {
 export async function getCustomPageByPath(
   path: string
 ): Promise<CustomPage | null> {
+    if (process?.env?.isBuild == "t") {
+    console.log("构建环境，采用默认值");
+    return null
+   }
   try {
     const url = `${config.baseUrl}api/public/customPage?path=${path}`;
     const res = await fetch(url);

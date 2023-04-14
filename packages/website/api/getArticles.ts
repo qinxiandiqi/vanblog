@@ -15,6 +15,13 @@ export interface GetArticleOption {
 export const getArticlesByOption = async (
   option: GetArticleOption
 ): Promise<{ articles: Article[]; total: number; totalWordCount?: number }> => {
+    if (process.env.isBuild == "t") {
+      console.log("构建环境，采用默认值");
+      return {
+        articles: [],
+        total: 0,
+      };
+   }
   let queryString = "";
   for (const [k, v] of Object.entries(option)) {
     queryString += `${k}=${v}&`;
@@ -42,6 +49,10 @@ export const getArticlesByOption = async (
   }
 };
 export const getArticlesByTimeLine = async () => {
+    if (process?.env?.isBuild == "t") {
+    console.log("构建环境，采用默认值");
+    return {};
+   }
   try {
     const url = `${config.baseUrl}api/public/timeline`;
     const res = await fetch(url);
@@ -57,6 +68,10 @@ export const getArticlesByTimeLine = async () => {
   }
 };
 export const getArticlesByCategory = async () => {
+    if (process?.env?.isBuild == "t") {
+    console.log("构建环境，采用默认值");
+    return {};
+   }
   try {
     const url = `${config.baseUrl}api/public/category`;
     const res = await fetch(url);
@@ -72,6 +87,10 @@ export const getArticlesByCategory = async () => {
   }
 };
 export const getArticlesByTag = async (tagName: string) => {
+    if (process?.env?.isBuild == "t") {
+    console.log("构建环境，采用默认值");
+    return {};
+   }
   try {
     const url = `${config.baseUrl}api/public/tag`;
     const res = await fetch(url);
@@ -87,6 +106,10 @@ export const getArticlesByTag = async (tagName: string) => {
   }
 };
 export const getArticleByIdOrPathname = async (id: string) => {
+    if (process?.env?.isBuild == "t") {
+    console.log("构建环境，采用默认值");
+    return {};
+   }
   try {
     const url = `${config.baseUrl}api/public/article/${id}`;
     const res = await fetch(url);
@@ -114,6 +137,10 @@ export const getArticleByIdOrPathnameWithPassword = async (
   id: number | string,
   password: string
 ) => {
+    if (process?.env?.isBuild == "t") {
+    console.log("构建环境，采用默认值");
+    return {};
+   }
   try {
     const url = `/api/public/article/${id}`;
     const res = await fetch(url, {
