@@ -7,8 +7,9 @@ WORKDIR /app
 USER root
 RUN apk add --update python3 make g++ && rm -rf /var/cache/apk/*
 COPY ./packages/admin/ ./
+RUN npm install -g corepack@latest
 RUN corepack enable
-RUN corepack prepare pnpm@latest --activate
+RUN corepack prepare pnpm@latest-7 --activate
 RUN pnpm config set network-timeout 600000 -g
 RUN pnpm config set registry https://registry.npmjs.org -g
 RUN pnpm config set fetch-retries 20 -g
@@ -21,8 +22,9 @@ FROM node:18 as SERVER_BUILDER
 ENV NODE_OPTIONS=--max_old_space_size=4096
 WORKDIR /app
 COPY ./packages/server/ .
+RUN npm install -g corepack@latest
 RUN corepack enable
-RUN corepack prepare pnpm@latest --activate
+RUN corepack prepare pnpm@latest-7 --activate
 RUN pnpm config set network-timeout 600000 -g
 RUN pnpm config set registry https://registry.npmmirror.com -g
 RUN pnpm config set fetch-retries 20 -g
@@ -44,8 +46,9 @@ ARG VAN_BLOG_BUILD_SERVER
 ENV VAN_BLOG_SERVER_URL ${VAN_BLOG_BUILD_SERVER}
 ARG VAN_BLOG_VERSIONS
 ENV VAN_BLOG_VERSION ${VAN_BLOG_VERSIONS}
+RUN npm install -g corepack@latest
 RUN corepack enable
-RUN corepack prepare pnpm@latest --activate
+RUN corepack prepare pnpm@latest-7 --activate
 RUN pnpm config set network-timeout 600000 -g
 RUN pnpm config set registry https://registry.npmmirror.com -g
 RUN pnpm config set fetch-retries 20 -g
@@ -61,8 +64,9 @@ RUN  apk add --no-cache --update tzdata caddy nss-tools libwebp-tools \
   && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
   && echo "Asia/Shanghai" > /etc/timezone \
   && apk del tzdata
+RUN npm install -g corepack@latest
 RUN corepack enable
-RUN corepack prepare pnpm@latest --activate
+RUN corepack prepare pnpm@latest-7 --activate
 RUN pnpm config set network-timeout 600000 -g
 RUN pnpm config set registry https://registry.npmmirror.com -g
 RUN pnpm config set fetch-retries 20 -g
