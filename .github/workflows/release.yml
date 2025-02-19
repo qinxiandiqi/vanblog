@@ -84,18 +84,18 @@ jobs:
         with:
           body_path: CHANGE.md
 
-      - name: updateVersionToApiServer
-        run: |
-          curl -X POST "${{ secrets.VERSIONURL }}${{ steps.get_version.outputs.VERSION }}"
+      # - name: updateVersionToApiServer
+      #   run: |
+      #     curl -X POST "${{ secrets.VERSIONURL }}${{ steps.get_version.outputs.VERSION }}"
 
-      - name: 部署到集群
-        uses: steebchen/kubectl@v2.0.0
-        with: # defaults to latest kubectl binary version
-          config: ${{ secrets.K8S_CONFIG_DATA }}
-          command: set image  deployment/van-blog van-blog=docker.io/mereith/van-blog:${{ steps.get_version.outputs.VERSION }}
+      # - name: 部署到集群
+      #   uses: steebchen/kubectl@v2.0.0
+      #   with: # defaults to latest kubectl binary version
+      #     config: ${{ secrets.K8S_CONFIG_DATA }}
+      #     command: set image  deployment/van-blog van-blog=docker.io/mereith/van-blog:${{ steps.get_version.outputs.VERSION }}
 
-      - name: 部署 demo 到集群
-        uses: steebchen/kubectl@v2.0.0
-        with: # defaults to latest kubectl binary version
-          config: ${{ secrets.K8S_CONFIG_DATA }}
-          command: set image  deployment/blog-demo van-blog=docker.io/mereith/van-blog:${{ steps.get_version.outputs.VERSION }}
+      # - name: 部署 demo 到集群
+      #   uses: steebchen/kubectl@v2.0.0
+      #   with: # defaults to latest kubectl binary version
+      #     config: ${{ secrets.K8S_CONFIG_DATA }}
+      #     command: set image  deployment/blog-demo van-blog=docker.io/mereith/van-blog:${{ steps.get_version.outputs.VERSION }}
