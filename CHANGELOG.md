@@ -1,4 +1,11 @@
 # Changelog
+### [0.54.2](https://github.com/qinxiandiqi/vanblog/compare/v0.54.1...v0.54.2) (2025-02-19)
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* 修复distutils构建错误 ([ca23333](https://github.com/qinxiandiqi/vanblog/commit/ca23333853ef5eabc9200147c907d36bb6153afd))
+
 ### [0.54.1](https://github.com/qinxiandiqi/vanblog/compare/v0.51.1...v0.54.1) (2025-02-19)
 
 
