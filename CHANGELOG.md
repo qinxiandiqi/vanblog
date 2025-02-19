@@ -1,4 +1,11 @@
 # Changelog
+### [0.54.3](https://github.com/qinxiandiqi/vanblog/compare/v0.54.2...v0.54.3) (2025-02-19)
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* 修复docker构建 ([e50f5eb](https://github.com/qinxiandiqi/vanblog/commit/e50f5ebb4b0f2df3ec806133474a0225c98a3d1d))
+
 ### [0.54.2](https://github.com/qinxiandiqi/vanblog/compare/v0.54.1...v0.54.2) (2025-02-19)
 
 
