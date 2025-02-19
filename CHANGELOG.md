@@ -1,4 +1,116 @@
 # Changelog
+### [0.54.1](https://github.com/qinxiandiqi/vanblog/compare/v0.51.1...v0.54.1) (2025-02-19)
+
+
+### 🚀 Chore | 构建/工程依赖/工具
+
+* build error，website 构建锁定版本 ([3986dbe](https://github.com/qinxiandiqi/vanblog/commit/3986dbe7beb0d773c3b5cc55eb227ec57bdfd9f6))
+* docker 安装脚本缓存一份，防止无法加载 ([f300cad](https://github.com/qinxiandiqi/vanblog/commit/f300cadf864e39ad94d7f01f11f72f8a15d82977))
+* introduce prettier v3 ([dbf3bf9](https://github.com/qinxiandiqi/vanblog/commit/dbf3bf95ad2e9c46cd3878042b93c0fbbc0a116b))
+* pnpm lock version ([85c5412](https://github.com/qinxiandiqi/vanblog/commit/85c54125931a139127c4e251dff83e4445ef1374))
+* **release:** 0.52.0 ([b9ad5d2](https://github.com/qinxiandiqi/vanblog/commit/b9ad5d29f1d14c40832d294c235ad28ae3dc8029))
+* **release:** 0.53.0 ([1296a9e](https://github.com/qinxiandiqi/vanblog/commit/1296a9edb618d7593a8152103089ff17c9e87e0d))
+* **release:** 0.54.0 ([8eb670b](https://github.com/qinxiandiqi/vanblog/commit/8eb670b88e05572fd3c6039a89759abb6745dcab))
+* remove lerna and bump deps ([9573e06](https://github.com/qinxiandiqi/vanblog/commit/9573e06e3d706617906a0dfa8a9ea783b32af39c))
+* script -> v0.3.1 ([aeeef47](https://github.com/qinxiandiqi/vanblog/commit/aeeef47130b0fe9eb911e4803cb05a31f7b298b1))
+* tweaks ([52a6c14](https://github.com/qinxiandiqi/vanblog/commit/52a6c1433c5818b8b5cf56f6c372a93d91d7df84))
+* update docs ([a97bef7](https://github.com/qinxiandiqi/vanblog/commit/a97bef722908ecf73648ecf102f5cac843c97593))
+* use corepack in docker ([5282cb7](https://github.com/qinxiandiqi/vanblog/commit/5282cb77321333eac3c443bd1e1ff59969faa7c4))
+* 一键脚本使用 docker compose 代替 docker-compose ([472aeda](https://github.com/qinxiandiqi/vanblog/commit/472aedab07d097dd3ec03a5c5ff1e31287dda0a1))
+* 一键脚本增加中国ip检测，分流国内外下载地址 ([a352ad7](https://github.com/qinxiandiqi/vanblog/commit/a352ad7fd301efba467fe6cdf10de62734278056))
+* 一键脚本增加备份恢复功能 ([752f467](https://github.com/qinxiandiqi/vanblog/commit/752f4670500a8596c81fcc770e35cb686ebefc8f))
+* 优化一键脚本 ([784a414](https://github.com/qinxiandiqi/vanblog/commit/784a41408b909541766a2f2c880b6ed721a1665c))
+
+
+### 💄 Styles | 风格
+
+* unify editorconfig ([ee29b57](https://github.com/qinxiandiqi/vanblog/commit/ee29b57b9592099784516ae5add6e316e23f5d27))
+* z-index 使用保守的数值 ([80fe17c](https://github.com/qinxiandiqi/vanblog/commit/80fe17c879b9f839ba54fcba06a7580e835ec865))
+* 微调 UI ([98de0f7](https://github.com/qinxiandiqi/vanblog/commit/98de0f7b6844ee1ddf4e87ccbb00c458d6cdf5d8))
+* 扩大pc导航栏可点击范围，优化体验 ([50ac020](https://github.com/qinxiandiqi/vanblog/commit/50ac0206cea8f65d7bfb0ac1f3e059406b2f2109))
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* https 自动跳转失效 [#273](https://github.com/qinxiandiqi/vanblog/issues/273) ([8b6f416](https://github.com/qinxiandiqi/vanblog/commit/8b6f41615fba22e45a0954c770296b489734c2e7))
+* icp 备案文案错误 ([29d0e09](https://github.com/qinxiandiqi/vanblog/commit/29d0e09606868a4bd610f69e86f9962c8b8005cf))
+* public api 文章字段过滤错误 ([fdbd26a](https://github.com/qinxiandiqi/vanblog/commit/fdbd26a8e1228e77cf51fa345baad5ac6432d9ac))
+* 一件更新脚本失效 [#334](https://github.com/qinxiandiqi/vanblog/issues/334) [#330](https://github.com/qinxiandiqi/vanblog/issues/330) ([c651c92](https://github.com/qinxiandiqi/vanblog/commit/c651c928332cb014cbe4655c4665695627aebf1c))
+* 修复老脚本无法更新到 v0.54.0 的问题 ([1c88466](https://github.com/qinxiandiqi/vanblog/commit/1c88466657214554c330268a67874e45c9e9895b))
+* 分析面板中分类数量不准确 ([d8ebe73](https://github.com/qinxiandiqi/vanblog/commit/d8ebe73d32e0a849d559f0929cebf2c7f2be9a3b))
+* 当前浏览器不计入统计的 bug [#261](https://github.com/qinxiandiqi/vanblog/issues/261) ([d153465](https://github.com/qinxiandiqi/vanblog/commit/d153465d4a96c65d4ec6408dced69b7d88c82b2e))
+
+
+### ✏️ Documentation | 文档
+
+* remove redirection ([c2faea8](https://github.com/qinxiandiqi/vanblog/commit/c2faea8284129ae49f4cb46d75977dc9490c787b))
+* site verify ([4dcf8b0](https://github.com/qinxiandiqi/vanblog/commit/4dcf8b0ce7bc7f5aaec27ee1905f181ed1a189bc))
+* trigger update ([eabb386](https://github.com/qinxiandiqi/vanblog/commit/eabb38650cc1d0cc99c3896a190f3113a1bf7f47))
+* update ([2dd8b6b](https://github.com/qinxiandiqi/vanblog/commit/2dd8b6ba52a396d3cc04a8d4a6c7cfef80bf9c6e))
+* Update README.md ([de34679](https://github.com/qinxiandiqi/vanblog/commit/de34679cdece685f1b6dc70fcd6e83ae9dc71fc6))
+* 去掉一些失效的样例网站 ([61c2b6a](https://github.com/qinxiandiqi/vanblog/commit/61c2b6a33ff74c510b1deb01ce884fab128b84b7))
+* 图片自动压缩文档和文案 ([82fad8c](https://github.com/qinxiandiqi/vanblog/commit/82fad8c690067af2eebcb739863e16c2fc9cfb37))
+* 增加QQ邮件消息配置参数说明 ([#278](https://github.com/qinxiandiqi/vanblog/issues/278)) ([4896a50](https://github.com/qinxiandiqi/vanblog/commit/4896a5048bf7ea3dbc9ffd85d53624a5f6189b57))
+* 增加一批样例 ([b503f4d](https://github.com/qinxiandiqi/vanblog/commit/b503f4dcf2cd2643401c1432f0967ac302ecc395))
+* 增加案例 ([a55b8f5](https://github.com/qinxiandiqi/vanblog/commit/a55b8f5e7fe946bafa031b9a14e4215c02c9167e))
+* 文档中补充阿里云镜像源地址 ([5babb70](https://github.com/qinxiandiqi/vanblog/commit/5babb70a187ac261c9ab9947dd231b4556d057e8))
+* 文档样式修改 ([1ad0946](https://github.com/qinxiandiqi/vanblog/commit/1ad0946f12ba941803f8e3a0613435de94273351))
+* 更新使用样例 ([caab272](https://github.com/qinxiandiqi/vanblog/commit/caab2729c2a27130ff8a2d63bf44e293281c209f))
+* 更新前台编辑按钮相关文档 ([bff5ded](https://github.com/qinxiandiqi/vanblog/commit/bff5ded1df1302c6858e9576b7a9b2115d861d60))
+* 更新备份恢复文档和脚本演示图片 ([f07fc18](https://github.com/qinxiandiqi/vanblog/commit/f07fc189becf843a31d039658aa041a7f44cd981))
+* 更新批量操作相关文档 ([760fce9](https://github.com/qinxiandiqi/vanblog/commit/760fce953ae721140ecc5b1ee569b146f1543a42))
+* 更新描述 [#227](https://github.com/qinxiandiqi/vanblog/issues/227) ([354676b](https://github.com/qinxiandiqi/vanblog/commit/354676b8ffd94b93a02ce496106d2d36b2603e4f))
+* 更新文档 ([a706673](https://github.com/qinxiandiqi/vanblog/commit/a706673387c6e5a436b365db3e5dace0679e902d))
+* 更新文档 ([a77f4d6](https://github.com/qinxiandiqi/vanblog/commit/a77f4d6981688772de36bd22de385bc6f573cfbb))
+* 更新文档 ([1d94964](https://github.com/qinxiandiqi/vanblog/commit/1d949643569c8c4f7e700021fc224207d8c2acc6))
+* 更新文档 ([392b2bd](https://github.com/qinxiandiqi/vanblog/commit/392b2bdca765b4436946de53ad2e719cee061bdd))
+* 更新文档 ([dc64fe9](https://github.com/qinxiandiqi/vanblog/commit/dc64fe9634bd39308dfdaf62484124ed1f3f6ac2))
+* 更新文档 ([20ca4cf](https://github.com/qinxiandiqi/vanblog/commit/20ca4cf515f75d482a36346f63eb311bb104b74c))
+* 更新文档 ([9fefb8e](https://github.com/qinxiandiqi/vanblog/commit/9fefb8e2fb1ac998df2f7916cb7a019b8ff7984c))
+* 更新文档 ([104a93f](https://github.com/qinxiandiqi/vanblog/commit/104a93f84810b43628d47ffcb525e4261d750781))
+* 更新文档 ([005a246](https://github.com/qinxiandiqi/vanblog/commit/005a2464a39cd891d58acaf16d81328b89cf6099))
+* 更新文档 ([86d3f35](https://github.com/qinxiandiqi/vanblog/commit/86d3f35ae3ebf22f879d2e7a223ab9835f3b9355))
+* 更新文档 ([fab6e5a](https://github.com/qinxiandiqi/vanblog/commit/fab6e5a7d772bfd25820b6ceba30690604e5eab9))
+* 更新文档 ([3550a06](https://github.com/qinxiandiqi/vanblog/commit/3550a06724b6f8830fd1bf5f22bed56d06fa5924))
+* 更新文档 ([d9432a1](https://github.com/qinxiandiqi/vanblog/commit/d9432a1afbac05f6187e5d1f8d5311bc25c49fff))
+* 更新文档 ([e0baffb](https://github.com/qinxiandiqi/vanblog/commit/e0baffbaca1686b7720d650dee3a2b386c8ce520))
+* 更新文档 ([86b8e90](https://github.com/qinxiandiqi/vanblog/commit/86b8e90ec549d8413d6aa87d6800aa9de45f2204))
+* 更新样例 [#295](https://github.com/qinxiandiqi/vanblog/issues/295) ([3ca4b7a](https://github.com/qinxiandiqi/vanblog/commit/3ca4b7a79c4a6f96f39630faed674f74420809a1))
+* 更新样例网站 ([25d4141](https://github.com/qinxiandiqi/vanblog/commit/25d414117b127bca0f851a80b2d40259efa1b3c0))
+* 更新系统日志文档 ([51e21d8](https://github.com/qinxiandiqi/vanblog/commit/51e21d8d41a267ab47d7c6bf6827dbdd6aabe058))
+* 更新谁在使用 ([8d91726](https://github.com/qinxiandiqi/vanblog/commit/8d91726986d1c2e4ffb0d3ce49ee7b808c062830))
+* 更新谁在使用 [#267](https://github.com/qinxiandiqi/vanblog/issues/267) ([79d48b7](https://github.com/qinxiandiqi/vanblog/commit/79d48b74014ec3a00ced698f0d87d8303e88191f))
+* 更新谁在使用 [#286](https://github.com/qinxiandiqi/vanblog/issues/286) ([ee58831](https://github.com/qinxiandiqi/vanblog/commit/ee58831f65ef311fceb5df94ca154472e4fb9cdf))
+* 更新谁在使用 [#307](https://github.com/qinxiandiqi/vanblog/issues/307) ([e085035](https://github.com/qinxiandiqi/vanblog/commit/e08503541d18284289cd5c399bc6e58cb2a8dc13))
+* 更新谁在使用 [#315](https://github.com/qinxiandiqi/vanblog/issues/315) ([f52aa07](https://github.com/qinxiandiqi/vanblog/commit/f52aa07e12955bab30c207aa7ddd8dda4ad8b1a4))
+* 更新谁在使用 [#317](https://github.com/qinxiandiqi/vanblog/issues/317) ([3fbca1c](https://github.com/qinxiandiqi/vanblog/commit/3fbca1c6ef94ef16c7ba7cd1446f8163907d8a92))
+* 更新谁在使用 [#320](https://github.com/qinxiandiqi/vanblog/issues/320) ([fb2097b](https://github.com/qinxiandiqi/vanblog/commit/fb2097b4926d4bbdcd2631410041683b3ea3a979))
+* 更新谁在使用 [#323](https://github.com/qinxiandiqi/vanblog/issues/323) ([c6ab6e3](https://github.com/qinxiandiqi/vanblog/commit/c6ab6e366f719e44fee3ce569da942102543cd36))
+* 添加一些样例网站 ([4593d99](https://github.com/qinxiandiqi/vanblog/commit/4593d9921eb06c89b0993ced87547b4174bb1194))
+* 添加样例 [#279](https://github.com/qinxiandiqi/vanblog/issues/279) ([46787bd](https://github.com/qinxiandiqi/vanblog/commit/46787bd8869e7717e162b2709c5ff0db7c82d11d))
+
+
+### ✨ Features | 新功能
+
+* **admin:** 管理后台文章和草稿列表页的导入按钮可以多选导入了 ([4690cbf](https://github.com/qinxiandiqi/vanblog/commit/4690cbfd97a488d7edab409c89bd9d017527be2b))
+* gif 格式图片上传 & 修复某些情况下上传图片报错 [#285](https://github.com/qinxiandiqi/vanblog/issues/285) ([43f84e6](https://github.com/qinxiandiqi/vanblog/commit/43f84e63a48ab3b483bc58ea5c5ab75bc4cffcc8))
+* markdown 内允许 script（虽然后台预览无效但前台生效） 和 iframe ([24b7e5f](https://github.com/qinxiandiqi/vanblog/commit/24b7e5fda5955a107183f6e9d27699881805f73c))
+* 上传图片时自动压缩（webp） [#276](https://github.com/qinxiandiqi/vanblog/issues/276) ([cd88c08](https://github.com/qinxiandiqi/vanblog/commit/cd88c0871eb28a402d08d8f66b1faebad6f8ff27))
+* 修改docker hub配置 ([8552f58](https://github.com/qinxiandiqi/vanblog/commit/8552f58df940cadabae4d474f679da6363f4e6d8))
+* 前台标签页增加按照字母顺序排序 ([#327](https://github.com/qinxiandiqi/vanblog/issues/327)) ([28be24b](https://github.com/qinxiandiqi/vanblog/commit/28be24bbd61ada06b16f2dc10a2d19380e9f570e))
+* 前台编辑按钮登录态判断优化 ([de45b90](https://github.com/qinxiandiqi/vanblog/commit/de45b9069285d91f0539a2b6bac1d55f87de9b41))
+* 增加一个 reset waline 脚本 ([d39fb41](https://github.com/qinxiandiqi/vanblog/commit/d39fb4167367b16c3bd470114717df9e11e33057))
+* 增加一些类名，便于进行自定义 CSS ([20d7075](https://github.com/qinxiandiqi/vanblog/commit/20d7075174fe4e17010e92cc1f5b4458bc996706))
+* 增加一件脚本来关闭 https 重定向 ([ea41ea8](https://github.com/qinxiandiqi/vanblog/commit/ea41ea8535ddaaaebc5052951d34e45f6dc31d83))
+* 屏蔽github action的服务器自动部署 ([0b67738](https://github.com/qinxiandiqi/vanblog/commit/0b677380c5ffd53a36b8dc47bd0f1d2bcebc1274))
+* 文章卡片标题和子标题增加类名 ([b97289b](https://github.com/qinxiandiqi/vanblog/commit/b97289bdfd15ee574901bbae69a78252f1b148eb))
+* 文章或草稿支持批量导出markdown或批量删除操作 [#296](https://github.com/qinxiandiqi/vanblog/issues/296) ([7dec2f8](https://github.com/qinxiandiqi/vanblog/commit/7dec2f8f98a8c67f34ba5b8755b9e8fde08e9c21))
+* 文章支持锚点定为 [#309](https://github.com/qinxiandiqi/vanblog/issues/309) ([0ab9fdb](https://github.com/qinxiandiqi/vanblog/commit/0ab9fdbf31246712a6fad07066d975eb7711de4f))
+* 文章标题过长自动截断 [#291](https://github.com/qinxiandiqi/vanblog/issues/291) ([32df7cd](https://github.com/qinxiandiqi/vanblog/commit/32df7cd1153278cd8ee99fc1992310300a856dc5))
+* 本地图床复制和插入markdown链接改为相对url [#303](https://github.com/qinxiandiqi/vanblog/issues/303) ([3290dec](https://github.com/qinxiandiqi/vanblog/commit/3290dece37a3f331d44ac7ec62e9bfd416c6ab59))
+* 本地编辑器缓存增加时间戳校验，只有比服务器更新时才会采用本地缓存。另外默认关闭本地缓存，可在编辑器右上角偏好设置中开启 ([7010d32](https://github.com/qinxiandiqi/vanblog/commit/7010d3217d8aaa5288169995fadfc9801df644b3))
+* 登录时，前台展示编辑按钮 [#234](https://github.com/qinxiandiqi/vanblog/issues/234) ([6af8a1b](https://github.com/qinxiandiqi/vanblog/commit/6af8a1be9586f2cbd3d509ee5d31a96e1553e4af))
+* 系统日志查看功能 ([872930d](https://github.com/qinxiandiqi/vanblog/commit/872930d75a63faa2b82e12cdadc6327723acc9e6))
 
 ## [0.54.0](https://github.com/Mereithhh/vanblog/compare/v0.53.0...v0.54.0) (2023-06-27)
 
