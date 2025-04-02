@@ -8,6 +8,7 @@
     "build:admin": "pnpm --filter @vanblog/admin build",
     "build:server": "pnpm --filter @vanblog/server build",
     "build:test": "act -j test --secret-file=.env",
+    "build:test-arm": "act -j arm --secret-file=.env",
     "build:website": "pnpm --filter @vanblog/theme-default build",
     "dev": "pnpm --filter @vanblog/server --filter @vanblog/admin --parallel dev",
     "dev:server": "pnpm --filter @vanblog/server dev:noweb ",

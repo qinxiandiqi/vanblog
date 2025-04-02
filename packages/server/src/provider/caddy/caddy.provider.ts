@@ -44,8 +44,8 @@ export class CaddyProvider {
         this.logger.log('https 自动重定向已关闭');
         return '关闭成功！';
       } catch (err) {
-        // console.log(err);
-        this.logger.error('关闭 https 自动重定向失败');
+        console.log(err);
+        this.logger.error('关闭 https 自动重定向失败', err);
         return false;
       }
     } else {
@@ -58,7 +58,7 @@ export class CaddyProvider {
         this.logger.log('https 自动重定向已关闭');
         return '开启成功！';
       } catch (err) {
-        // console.log(err);
+        console.log(err);
         this.logger.error('开启 https 自动重定向失败');
         return false;
       }

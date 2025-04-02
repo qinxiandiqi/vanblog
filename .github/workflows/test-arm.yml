@@ -42,9 +42,9 @@ jobs:
           context: .
           file: ./Dockerfile
           build-args: |
-            VAN_BLOG_BUILD_SERVER=https://blog-demo.mereith.com/
+            VAN_BLOG_BUILD_SERVER=hhttp://localhost:3000
             VAN_BLOG_VERSIONS=test-${{ steps.get_version.outputs.VERSION }}
           platforms: linux/arm64
           push: true
           tags: |
-            "docker.io/mereith/van-blog:test-${{ steps.get_version.outputs.VERSION }}"
+            "docker.io/qinxiandiqi/van-blog:test-${{ steps.get_version.outputs.VERSION }}"
