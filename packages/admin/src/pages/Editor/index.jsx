@@ -19,10 +19,11 @@ import { parseMarkdownFile, parseObjToMarkdown } from '@/services/van-blog/parse
 import { useCacheState } from '@/services/van-blog/useCacheState';
 import { DownOutlined } from '@ant-design/icons';
 import { PageContainer } from '@ant-design/pro-layout';
-import { Button, Dropdown, Input, Menu, message, Modal, Space, Tag, Upload } from 'antd';
+import { Button, Dropdown, Input, Menu, message, Modal, Space, Tag, Upload, Spin } from 'antd';
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { history } from 'umi';
+import { history } from '@/utils/umiCompat';
 import moment from 'moment';
+import './index.less';
 
 export default function () {
   const [value, setValue] = useState('');
@@ -367,7 +368,7 @@ export default function () {
               label: `删除${typeMap[type]}`,
               onClick: () => {
                 Modal.confirm({
-                  title: `确定删除 “${currObj.title}” 吗？`,
+                  title: `确定删除 "${currObj.title}" 吗？`,
                   onOk: async () => {
                     if (location.hostname == 'blog-demo.mereith.com' && type == 'article') {
                       if ([28, 29].includes(currObj.id)) {
@@ -429,8 +430,7 @@ export default function () {
   );
   return (
     <PageContainer
-      className="editor-full"
-      style={{ overflow: 'hidden' }}
+      className="editorContainer"
       header={{
         title: (
           <Space>
@@ -469,38 +469,37 @@ export default function () {
       }}
       footer={null}
     >
-      <div style={{ height: '100%' }}>
-        <div style={{ height: '0' }}>
+        <div style={{ display: 'none' }}>
           <Upload
             showUploadList={false}
             multiple={false}
             accept={'.md'}
             beforeUpload={handleImport}
-            style={{ display: 'none', height: 0 }}
+            style={{ display: 'none' }}
           >
             <a key="importBtn" type="link" style={{ display: 'none' }} id="importBtn">
               导入内容
             </a>
           </Upload>
         </div>
-        <Editor
-          loading={loading}
-          setLoading={setLoading}
-          value={value}
-          onChange={(val) => {
-            setValue(val);
-            if (editorConfig?.useLocalCache && editorConfig?.useLocalCache == 'open') {
+        <div className="editor-wrapper">
+          <Editor
+            loading={loading}
+            setLoading={setLoading}
+            value={value}
+            onChange={(v) => {
+              setValue(v);
+              const date = new Date();
               window.localStorage.setItem(
                 getCacheKey(),
                 JSON.stringify({
-                  content: val,
-                  time: new Date().valueOf(),
+                  content: v,
+                  time: date,
                 }),
               );
-            }
-          }}
-        />
-      </div>
+            }}
+          />
+        </div>
     </PageContainer>
   );
 }

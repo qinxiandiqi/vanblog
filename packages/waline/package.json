@@ -1,11 +1,11 @@
 {
   "name": "@vanblog/waline",
-  "version": "1.0.0",
+  "version": "0.54.0-corn.3",
   "main": "index.js",
   "type": "module",
   "license": "MIT",
   "dependencies": {
-    "@waline/vercel": "1.31.7"
+    "@waline/vercel": "1.32.3"
   },
   "scripts": {
     "start": "node node_modules/@waline/vercel/vanilla.js"

@@ -1,47 +1,52 @@
-import { useEffect, useRef } from 'react';
-import { history, useModel } from 'umi';
+import { useEffect, useRef, useMemo } from 'react';
+import { history, useModel } from '@/utils/umiCompat';
+import { useLocation } from 'react-router-dom';
 import './index.css';
+
 const Footer = () => {
-  const { initialState } = useModel('@@initialState');
+  const { initialState } = useModel();
   const { current } = useRef({ hasInit: false });
-  // const version = useMemo(() => {
-  //   let v = initialState?.version || '获取中...';
-  //   if (history.location.pathname == '/user/login') {
-  //     v = '登录后显示';
-  //   }
-  //   return v;
-  // }, [initialState, history]);
+  const location = useLocation();
+  const isInitPage = location.pathname.includes('/init');
+
+  const version = useMemo(() => {
+    if (isInitPage) return '初始化中...';
+    let v = initialState?.version || '获取中...';
+    if (location.pathname === '/user/login') {
+      v = '登录后显示';
+    }
+    return v;
+  }, [initialState, location, isInitPage]);
+
   useEffect(() => {
     if (!current.hasInit) {
       current.hasInit = true;
-      let v = initialState?.version || '获取中...';
-      if (history.location.pathname == '/user/login') {
-        v = '登录后显示';
+      if (!isInitPage) {
+        console.log('✨ Welcome to VanBlog Website ✨');
+        console.log('Version:', version);
+        console.log('GitHub:', 'https://github.com/CornWorld/vanblog');
+        console.log('!!!', 'This is a fork of VanBlog, and is not the official website.', '!!!');
+        console.log('If you like this project, please give it a star! 🌟');
       }
-      console.log('🚀欢迎使用 VanBlog 博客系统');
-      console.log('当前版本：', v);
-      console.log('项目主页：', 'https://vanblog.mereith.com');
-      console.log('开源地址：', 'https://github.com/mereithhh/van-blog');
-      console.log('喜欢的话可以给个 star 哦🙏');
     }
-  }, [initialState, history]);
-  return null;
-  // return (
-  //   <>
-  //     <div className="footer" style={{ textAlign: 'center', marginTop: 32 }}>
-  //       <p>
-  //         <span>Powered By </span>
-  //         <a className="ua" href="https://vanblog.mereith.com" target="_blank" rel="noreferrer">
-  //           VanBlog
-  //         </a>
-  //       </p>
-  //       <p>
-  //         <span>版本: </span>
-  //         <span> {version}</span>
-  //       </p>
-  //     </div>
-  //   </>
-  // );
+  }, [initialState, version, isInitPage]);
+
+  return (
+    <>
+      <div className="footer" style={{ textAlign: 'center', marginTop: 32 }}>
+        <p>
+          <span>Powered By </span>
+          <a className="ua" href="https://vanblog.mereith.com" target="_blank" rel="noreferrer">
+            VanBlog
+          </a>
+        </p>
+        <p>
+          <span>版本: </span>
+          <span>{version}</span>
+        </p>
+      </div>
+    </>
+  );
 };
 
 export default Footer;

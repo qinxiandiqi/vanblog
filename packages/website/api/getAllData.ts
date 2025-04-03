@@ -1,5 +1,9 @@
 import { HeadTag } from "../utils/getLayoutProps";
-import { config } from "../utils/loadConfig";
+import { logDefaultValueUsage, isBuildTime } from "../utils/loadConfig";
+import { apiService } from "./service";
+import { PageViewData } from "./types";
+
+// Re-export types used in public interface
 export type SocialType =
   | "bilibili"
   | "email"
@@ -7,6 +11,32 @@ export type SocialType =
   | "wechat"
   | "gitee"
   | "wechat-dark";
+
+export interface CustomPageList {
+  name: string;
+  path: string;
+}
+
+export interface CustomPage extends CustomPageList {
+  html: string;
+}
+
+export interface SocialItem {
+  updatedAt: string;
+  type: SocialType;
+  value: string;
+  dark?: string;
+}
+
+export interface MenuItem {
+  id: number;
+  name: string;
+  value: string;
+  level: number;
+  children?: MenuItem[];
+}
+
+// Default menu items
 export const defaultMenu: MenuItem[] = [
   {
     id: 0,
@@ -45,31 +75,13 @@ export const defaultMenu: MenuItem[] = [
     level: 0,
   },
 ];
-export interface CustomPageList {
-  name: string;
-  path: string;
-}
-export interface CustomPage extends CustomPageList {
-  html: string;
-}
-export interface SocialItem {
-  updatedAt: string;
-  type: SocialType;
-  value: string;
-  dark?: string;
-}
-export interface MenuItem {
-  id: number;
-  name: string;
-  value: string;
-  level: number;
-  children?: MenuItem[];
-}
+
 export interface DonateItem {
   name: string;
   value: string;
   updatedAt: string;
 }
+
 export interface LinkItem {
   name: string;
   desc: string;
@@ -77,6 +89,7 @@ export interface LinkItem {
   url: string;
   updatedAt: string;
 }
+
 export interface MetaProps {
   links: LinkItem[];
   socials: SocialItem[];
@@ -128,6 +141,7 @@ export interface MetaProps {
     showEditButton: "true" | "false";
   };
 }
+
 export interface PublicMetaProp {
   version: string;
   tags: string[];
@@ -141,127 +155,110 @@ export interface PublicMetaProp {
     html?: string;
     head?: HeadTag[];
   };
+  walineConfig?: {
+    serverURL?: string;
+  };
 }
 
-export const version = process.env["VAN_BLOG_VERSION"] || "dev";
-
-const defaultMeta: MetaProps = {
-  categories: [],
-  links: [],
-  socials: [],
-  rewards: [],
-  about: {
-    updatedAt: new Date().toISOString(),
-    content: "",
-  },
-  siteInfo: {
-    author: "作者名字",
-    authorDesc: "作者描述",
-    authorLogo: "/logo.svg",
-    siteLogo: "/logo.svg",
-    favicon: "/logo.svg",
-    siteName: "VanBlog",
-    siteDesc: "Vanblog",
-    copyrightAggreement: "",
-    beianNumber: "",
-    beianUrl: "",
-    gaBeianNumber: "",
-    gaBeianUrl: "",
-    gaBeianLogoUrl: "",
-    payAliPay: "",
-    payWechat: "",
-    payAliPayDark: "",
-    payWechatDark: "",
-    since: "",
-    enableComment: "true",
-    baseUrl: "",
-    showDonateInfo: "true",
-    showFriends: "true",
-    showAdminButton: "true",
-    defaultTheme: "auto",
-    showDonateInAbout: "false",
-    enableCustomizing: "true",
-    showCopyRight: "true",
-    showDonateButton: "true",
-    showExpirationReminder: "true",
-    showRSS: "true",
-    openArticleLinksInNewWindow: "false",
-    showEditButton: "false",
-  },
+/**
+ * Get public metadata
+ */
+export const getPublicMeta = async (): Promise<PublicMetaProp> => {
+  try {
+    return await apiService.getMeta();
+  } catch (err) {
+    console.error('Error fetching public meta:', err);
+    
+    if (isBuildTime) {
+      logDefaultValueUsage('getPublicMeta');
+    }
+    
+    // Return a basic structure with empty values
+    return {
+      version: '1.0.0',
+      tags: [],
+      totalArticles: 0,
+      totalWordCount: 0,
+      meta: {
+        links: [],
+        socials: [],
+        rewards: [],
+        categories: [],
+        about: {
+          updatedAt: new Date().toISOString(),
+          content: ''
+        },
+        siteInfo: {
+          author: 'Author',
+          authorDesc: '',
+          authorLogo: '',
+          siteLogo: '',
+          favicon: '/favicon.ico',
+          siteName: 'Blog',
+          siteDesc: 'A VanBlog site',
+          beianNumber: '',
+          beianUrl: '',
+          gaBeianNumber: '',
+          gaBeianUrl: '',
+          gaBeianLogoUrl: '',
+          payAliPay: '',
+          payWechat: '',
+          since: new Date().getFullYear().toString(),
+          baseUrl: 'http://localhost:3000',
+          copyrightAggreement: '',
+          showDonateInfo: 'false',
+          showFriends: 'false',
+          enableComment: 'false',
+          defaultTheme: 'light',
+          enableCustomizing: 'false',
+          showDonateButton: 'false',
+          showCopyRight: 'false',
+          showRSS: 'false',
+          openArticleLinksInNewWindow: 'false',
+          showExpirationReminder: 'false',
+          showEditButton: 'false',
+        }
+      },
+      menus: defaultMenu
+    };
+  }
 };
 
-export async function getPublicMeta(): Promise<PublicMetaProp> {
+/**
+ * Get all custom pages
+ */
+export const getAllCustomPages = async (): Promise<CustomPageList[]> => {
   try {
-    const url = `${config.baseUrl}api/public/meta`;
-    const res = await fetch(url);
-    const { statusCode, data } = await res.json();
-    if (statusCode == 233) {
-      return {
-        version: version,
-        totalWordCount: 0,
-        menus: defaultMenu,
-        tags: [],
-        totalArticles: 0,
-        meta: defaultMeta,
-      };
-    }
-    return data;
+    return await apiService.getAllCustomPages();
   } catch (err) {
-    if (process.env.isBuild == "t") {
-      console.log("无法连接，采用默认值");
-      // 给一个默认的吧。
-      return {
-        version: version,
-        totalWordCount: 0,
-        tags: [],
-        menus: defaultMenu,
-        totalArticles: 0,
-        meta: defaultMeta,
-      };
-    } else {
-      throw err;
-    }
+    console.error('Error fetching custom pages:', err);
+    return [];
   }
-}
-export async function getAllCustomPages(): Promise<CustomPageList[]> {
+};
+
+/**
+ * Get a specific custom page by path
+ */
+export const getCustomPage = async (path: string): Promise<CustomPage | null> => {
   try {
-    const url = `${config.baseUrl}api/public/customPage/all`;
-    const res = await fetch(url);
-    const { statusCode, data } = await res.json();
-    if (statusCode == 200) {
-      return data;
-    } else {
-      return [];
-    }
+    return await apiService.getCustomPage(path);
   } catch (err) {
-    if (process.env.isBuild == "t") {
-      console.log("无法连接，采用默认值");
-      // 给一个默认的吧。
-      return [];
-    } else {
-      throw err;
-    }
+    console.error(`Error fetching custom page (${path}):`, err);
+    return null;
   }
-}
-export async function getCustomPageByPath(
-  path: string
-): Promise<CustomPage | null> {
-  try {
-    const url = `${config.baseUrl}api/public/customPage?path=${path}`;
-    const res = await fetch(url);
-    const { statusCode, data } = await res.json();
-    if (statusCode == 200) {
-      return data;
-    } else {
-      return null;
-    }
-  } catch (err) {
-    if (process.env.isBuild == "t") {
-      console.log("无法连接，采用默认值");
-      // 给一个默认的吧。
-      return null;
-    } else {
-      throw err;
-    }
+};
+
+/**
+ * Get article viewer statistics by article ID
+ */
+export const getArticleViewer = async (id: number | string): Promise<PageViewData> => {
+  if(isBuildTime) {
+    return {
+      viewer: 0,
+      visited: 0
+    };
   }
-}
+
+  return apiService.getArticleViewer(id);
+};
+

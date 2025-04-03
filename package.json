@@ -1,6 +1,6 @@
 {
   "name": "root",
-  "version": "0.54.4",
+  "version": "0.54.0-corn.3",
   "private": true,
   "scripts": {
     "clean": "rm -rf node_modules && rm -rf packages/*/node_modules && rm -rf packages/*/dist",
@@ -24,20 +24,22 @@
     "release-major": "standard-version --release-as major",
     "release-minor": "standard-version --release-as minor",
     "release-patch": "standard-version --release-as patch",
+    "prepare-release": "node scripts/prepare-release.js",
     "sync-aliyun": "bash scripts/sync-aliyuncs.sh",
     "webhook": "node scripts/webhook.js"
   },
-  "packageManager": "pnpm@8.11.0",
+  "packageManager": "pnpm@10.6.2",
   "devDependencies": {
-    "cross-env": "^7.0.3",
-    "nan": "^2.18.0",
-    "@typescript-eslint/eslint-plugin": "^6.13.1",
+    "@typescript-eslint/eslint-plugin": "^8.26.1",
+    "@typescript-eslint/parser": "^8.26.1",
     "@umijs/fabric": "^4.0.1",
-    "@typescript-eslint/parser": "^6.13.1",
-    "eslint": "^8.54.0",
-    "eslint-config-prettier": "^9.0.0",
-    "eslint-plugin-prettier": "^5.0.1",
-    "prettier": "^3.1.0",
+    "cross-env": "^7.0.3",
+    "eslint": "^9.22.0",
+    "eslint-config-prettier": "^10.1.1",
+    "eslint-plugin-prettier": "^5.2.3",
+    "nan": "^2.22.2",
+    "patch-package": "^8.0.0",
+    "prettier": "^3.5.3",
     "standard-version": "^9.5.0"
   }
 }

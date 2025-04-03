@@ -1,136 +1,54 @@
-import { Article } from "../types/article";
-import { encodeQuerystring } from "../utils/encode";
-import { config } from "../utils/loadConfig";
-export type SortOrder = "asc" | "desc";
-export interface GetArticleOption {
-  page: number;
-  pageSize: number;
-  toListView?: boolean;
-  category?: string;
-  tags?: string;
-  sortCreatedAt?: SortOrder;
-  sortTop?: SortOrder;
-  withWordCount?: boolean;
-}
-export const getArticlesByOption = async (
-  option: GetArticleOption
-): Promise<{ articles: Article[]; total: number; totalWordCount?: number }> => {
-  let queryString = "";
-  for (const [k, v] of Object.entries(option)) {
-    queryString += `${k}=${v}&`;
-  }
-  queryString = queryString.substring(0, queryString.length - 1);
-  queryString = encodeQuerystring(queryString);
-  try {
-    const url = `${config.baseUrl}api/public/article?${queryString}`;
-    const res = await fetch(url);
-    const { statusCode, data } = await res.json();
-    if (statusCode == 233) {
-      return { articles: [], total: 0, totalWordCount: 0 };
-    }
-    return data;
-  } catch (err) {
-    if (process.env.isBuild == "t") {
-      console.log("无法连接，采用默认值");
-      return {
-        articles: [],
-        total: 0,
-      };
-    } else {
-      throw err;
-    }
-  }
+import { GetArticleOption, ArticleResponse, ArticleDetail } from '../types/api';
+import { Article } from '../types/article';
+import { apiService } from './service';
+
+// Re-export types for backward compatibility
+export type { GetArticleOption, SortOrder } from '../types/api';
+
+// Articles
+export const getArticlesByOption = async (option: GetArticleOption): Promise<ArticleResponse> => {
+  return apiService.getArticles(option);
 };
-export const getArticlesByTimeLine = async () => {
-  try {
-    const url = `${config.baseUrl}api/public/timeline`;
-    const res = await fetch(url);
-    const { data } = await res.json();
-    return data;
-  } catch (err) {
-    if (process.env.isBuild == "t") {
-      console.log("无法连接，采用默认值");
-      return {};
-    } else {
-      throw err;
-    }
-  }
+
+export const getArticlesByTimeLine = async (): Promise<Record<string, Article[]>> => {
+  return apiService.getTimeline();
 };
-export const getArticlesByCategory = async () => {
-  try {
-    const url = `${config.baseUrl}api/public/category`;
-    const res = await fetch(url);
-    const { data } = await res.json();
-    return data;
-  } catch (err) {
-    if (process.env.isBuild == "t") {
-      console.log("无法连接，采用默认值");
-      return {};
-    } else {
-      throw err;
-    }
-  }
+
+export const getArticlesByCategory = async (): Promise<Record<string, Article[]>> => {
+  return apiService.getCategories();
 };
-export const getArticlesByTag = async (tagName: string) => {
-  try {
-    const url = `${config.baseUrl}api/public/tag`;
-    const res = await fetch(url);
-    const { data } = await res.json();
-    return data;
-  } catch (err) {
-    if (process.env.isBuild == "t") {
-      console.log("无法连接，采用默认值");
-      return {};
-    } else {
-      throw err;
-    }
-  }
+
+export const getArticlesByTag = async (): Promise<Record<string, Article[]>> => {
+  return apiService.getTags();
 };
-export const getArticleByIdOrPathname = async (id: string) => {
-  try {
-    const url = `${config.baseUrl}api/public/article/${id}`;
-    const res = await fetch(url);
-    const { data } = await res.json();
-    const { article, pre, next } = data;
-    const r: any = { article };
-    if (pre) {
-      r.pre = { title: pre.title, id: pre.id, pathname: pre.pathname };
-    }
-    if (next) {
-      r.next = { title: next.title, id: next.id, pathname: next.pathname };
-    }
-    return r;
-  } catch (err) {
-    if (process.env.isBuild == "t") {
-      console.log("无法连接，采用默认值");
-      return {};
-    } else {
-      // console.log(err);
-      return {};
-    }
-  }
+
+export const getArticleByIdOrPathname = async (
+  idOrPathname: string | number
+): Promise<ArticleDetail> => {
+  return apiService.getArticleByIdOrPathname(idOrPathname);
 };
-export const getArticleByIdOrPathnameWithPassword = async (
-  id: number | string,
+
+export const getEncryptedArticleByIdOrPathname = async (
+  idOrPathname: string | number,
   password: string
-) => {
-  try {
-    const url = `/api/public/article/${id}`;
-    const res = await fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ password }),
-    });
-    const { data } = await res.json();
-    return data;
-  } catch (err) {
-    if (process.env.isBuild == "t") {
-      console.log("无法连接，采用默认值");
-      return {};
-    } else {
-      throw err;
-    }
-  }
+): Promise<ArticleDetail> => {
+  return apiService.getEncryptedArticle(idOrPathname, password);
+};
+
+// This function is for getting articles by a specific tag
+export const getArticlesByTagName = async (tag: string): Promise<Article[]> => {
+  return apiService.getArticlesByTag(tag);
+};
+
+// This function is for getting articles by a specific category
+export const getArticlesByCategoryName = async (category: string): Promise<Article[]> => {
+  // Since there's no direct endpoint for getting articles by category name,
+  // we'll get all categories and filter the one we need
+  const allCategories = await apiService.getCategories();
+  return allCategories[category] || [];
+};
+
+// Search
+export const getArticlesBySearch = async (value: string): Promise<ArticleResponse> => {
+  return apiService.searchArticles(value);
 };

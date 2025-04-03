@@ -1,3 +1,7 @@
+<h3 align="center">
+  <strong>📌此分支是由 <a href="https://github.com/CornWorld">CornWorld</a> 维护的分支版本📌</strong>  
+</h3>
+
 <p align="center">
 	<img src="/img/logo.svg" style="width: 200px"></img>
 </p>
@@ -5,19 +9,21 @@
 	<strong>VanBlog是一款简洁、实用、优雅的个人博客系统，支持全自动按需申请HTTPS证书、黑暗模式、移动端自适应和评论功能。它内置了流量统计和图床，并集成了评论系统。此外，VanBlog还具有无限的可扩展性，提供完备的后台管理面板，支持黑暗模式、移动端、一键上传剪贴板图片到图床，并带有强大的编辑器。</strong>
 </p>
 <p align="center">
-  <img src="https://img.shields.io/github/v/release/mereithhh/van-blog?display_name=tag" />
-  <img src="https://img.shields.io/docker/pulls/mereith/van-blog" />
-  <img src="https://img.shields.io/github/stars/mereithhh/van-blog" />
-  <img src="https://img.shields.io/bitbucket/issues/mereithhh/van-blog" />
-  <img src="https://github.com/mereithhh/van-blog/workflows/release/badge.svg" />
+  <img src="https://img.shields.io/github/v/release/CornWorld/vanblog?display_name=tag" />
+  <img src="https://img.shields.io/docker/pulls/cornworld/vanblog" />
+  <img src="https://img.shields.io/github/stars/CornWorld/vanblog" />
+  <img src="https://img.shields.io/bitbucket/issues/CornWorld/vanblog" />
+  <img src="https://github.com/CornWorld/vanblog/workflows/release/badge.svg" />
   <img src="https://img.shields.io/badge/license-GPL%20v3-yellow.svg" />
+  <a href="https://github.com/CornWorld/vanblog"><img src="https://img.shields.io/badge/Derivative_Fork-CornWorld-critical?logo=git" /></a>
 </p>
-<p align="center">
+
+<!-- <p align="center">
 	<strong>项目主页: </strong>  <a target="_blank" href='https://vanblog.mereith.com'>vanblog.mereith.com</a>
-</p>
-<p align="center">
+</p> -->
+<!-- <p align="center">
 	<strong>Demo(后台账号密码均为 demo): </strong>  <a target="_blank" href='https://blog-demo.mereith.com'>blog-demo.mereith.com</a>
-</p>
+</p> -->
 
 ## 预览图
 
@@ -54,7 +60,18 @@
 - [x] 完善的 API，完全利用本项目后台和服务端，自己写前端或适配其他页面生成器
 - [x] 有较完善的日志记录，后台可直接查看登录日志和 Caddy 日志。
 
-## 快速上手/部署教程
+## Fork 说明
+
+- 这是由 [CornWorld](https://github.com/CornWorld) 维护的 VanBlog 分支版本
+- 与上游的差异报告: [查看实时对比](https://github.com/CornWorld/vanblog/compare/upstream-baseline..main)
+
+### TODO
+- [] 迁移所有包的依赖到最新版本
+- [] 修复 Mermaid 渲染问题
+- [] 删除冗余文件
+- [] 重构 admin 包，抛弃 Umijs
+
+<!-- ## 快速上手/部署教程
 
 ### 一键脚本部署
 
@@ -118,9 +135,9 @@ curl -L https://vanblog.mereith.com/vanblog.sh -o vanblog.sh && chmod +x vanblog
 
 ## 开发指南
 
-- [开发指南](https://vanblog.mereith.com/contribution.html)
+- [开发指南](https://vanblog.mereith.com/contribution.html) -->
 
-## 谁在使用
+<!-- ## 谁在使用
 
 现在可能用的人有一些了吧 - -
 
@@ -152,7 +169,7 @@ curl -L https://vanblog.mereith.com/vanblog.sh -o vanblog.sh && chmod +x vanblog
 - [Newhand](https://newhand.top/)
 - [Jerome's Blog](https://www.blog-jerome.top/)
 - [宁骑播客](https://blog.xintianyuehui.cn/)
-<!-- - [耿老师](https://transfer.teachergeng.space) -->
+-->
 
 ## TODO
 
@@ -201,10 +218,9 @@ curl -L https://vanblog.mereith.com/vanblog.sh -o vanblog.sh && chmod +x vanblog
 - [ ] 国际化
 
 ## 问题反馈
+请提 [Issue](https://github.com/CornWorld/vanblog/issues/new/choose) ，如无特殊情况会在一天内解决。
 
-请提 [issue](https://github.com/Mereithhh/van-blog/issues/new/choose) ，如无特殊情况会在一天内解决。
-
-## 打赏
+<!-- ## 打赏
 
 如果觉得项目不错的话可以打赏哦。您的支持就是我最大的动力！
 
@@ -241,4 +257,4 @@ PS：如果打赏时请备注捐赠者，如有遗漏请联系我添加（有时
 </p>
 
 ## 多说一句
-> 很抱歉有段时间断更了，陆陆续续会慢慢继续更新的。  2024-09-01
+> 很抱歉有段时间断更了，陆陆续续会慢慢继续更新的。  2024-09-01 -->
