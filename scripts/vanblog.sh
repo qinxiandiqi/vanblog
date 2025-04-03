@@ -5,7 +5,7 @@
 # 系统要求: CentOS 7+ / Debian 8+ / Ubuntu 16+ / Arch Linux
 # 描述: 用于安装、配置和管理 VanBlog 博客系统及其 Waline 评论系统
 # 版本: Corn Fork v0.3.3
-# Github: https://github.com/CornWorld/vanblog
+# Github: https://github.com/qinxiandiqi/vanblog
 #========================================================
 
 #====================================
@@ -21,14 +21,14 @@ readonly VANBLOG_DATA_PATH="${VANBLOG_BASE_PATH}/data"
 readonly VANBLOG_DATA_PATH_RAW="\/var\/vanblog\/data"
 
 # URL 配置
-readonly COMPOSE_URL="https://raw.githubusercontent.com/CornWorld/vanblog/refs/heads/main/docker-compose/docker-compose-template.yml"
-readonly SCRIPT_URL="https://raw.githubusercontent.com/CornWorld/vanblog/refs/heads/main/scripts/vanblog.sh"
-readonly GITHUB_URL="github.com/CornWorld/vanblog"
+readonly COMPOSE_URL="https://raw.githubusercontent.com/qinxiandiqi/vanblog/refs/heads/main/docker-compose/docker-compose-template.yml"
+readonly SCRIPT_URL="https://raw.githubusercontent.com/qinxiandiqi/vanblog/refs/heads/main/scripts/vanblog.sh"
+readonly GITHUB_URL="github.com/qinxiandiqi/vanblog"
 
 # Docker 配置
 readonly DEFAULT_DOCKER_URL="get.docker.com"
 readonly DEFAULT_DOCKER_ARGS=""
-readonly DEFAULT_DOCKER_IMAGE="cornworld/vanblog:latest"
+readonly DEFAULT_DOCKER_IMAGE="qinxiandiqi/vanblog:latest"
 
 # 变量声明
 DOCKER_URL="${DEFAULT_DOCKER_URL}"
@@ -199,7 +199,7 @@ util_set_docker_vars() {
   # 设置 Docker 相关变量
   DOCKER_URL="get.docker.com"
   DOCKER_ARGS=""
-  DOCKER_IMAGE="cornworld/vanblog:latest"
+  DOCKER_IMAGE="qinxiandiqi/van-blog:latest"
 
   # 如果是中国 IP，可选择使用国内镜像
   if [[ -n "${CN}" ]]; then
@@ -207,7 +207,7 @@ util_set_docker_vars() {
     # 如果需要替换为国内镜像，可在此处修改
     # DOCKER_URL="vanblog.mereith.com/docker.sh"
     # DOCKER_ARGS=" -s docker --mirror Aliyun"
-    # DOCKER_IMAGE="registry.cn-beijing.aliyuncs.com/cornworld/vanblog:latest"
+    # DOCKER_IMAGE="registry.cn-beijing.aliyuncs.com/qinxiandiqi/van-blog:latest"
   fi
 }
 
@@ -1103,7 +1103,7 @@ uninstall_vanblog() {
   cd $VANBLOG_BASE_PATH &&
     docker-compose down -v
   rm -rf $VANBLOG_BASE_PATH
-  docker rmi -f cornworld/vanblog:latest >/dev/null 2>&1
+  docker rmi -f qinxiandiqi/van-blog:latest >/dev/null 2>&1
   util_clean_all
 
   if [[ $# == 0 ]]; then
@@ -1169,7 +1169,7 @@ help_show_usage() {
 menu_show_main() {
   echo -e "
     ${COLOR_GREEN}VanBlog 管理脚本${COLOR_PLAIN} ${COLOR_RED}${VANBLOG_SCRIPT_VERSION}${COLOR_PLAIN}
-    --- https://github.com/CornWorld/vanblog ---
+    --- https://github.com/qinxiandiqi/vanblog ---
 
     ${COLOR_GREEN}1.${COLOR_PLAIN}  安装 VanBlog
     ${COLOR_GREEN}2.${COLOR_PLAIN}  修改配置

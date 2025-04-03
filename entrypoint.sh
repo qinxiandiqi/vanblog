@@ -1,7 +1,7 @@
 #!/bin/sh
 echo "============================================="
 echo "欢迎使用 VanBlog 博客系统"
-echo "Github: https://github.com/CornWorld/vanblog"
+echo "Github: https://github.com/qinxiandiqi/vanblog"
 echo "Version(Env): ${VAN_BLOG_VERSION}"
 echo "============================================="
 

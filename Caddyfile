@@ -1,6 +1,8 @@
 {
 	# Global options for Caddy
-	debug
+	log {
+        level INFO
+    }
 	# Environment variables will be accessed directly where needed
 }
 

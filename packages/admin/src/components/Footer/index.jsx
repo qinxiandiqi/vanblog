@@ -24,7 +24,7 @@ const Footer = () => {
       if (!isInitPage) {
         console.log('✨ Welcome to VanBlog Website ✨');
         console.log('Version:', version);
-        console.log('GitHub:', 'https://github.com/CornWorld/vanblog');
+        console.log('GitHub:', 'https://github.com/qinxiandiqi/vanblog');
         console.log('!!!', 'This is a fork of VanBlog, and is not the official website.', '!!!');
         console.log('If you like this project, please give it a star! 🌟');
       }

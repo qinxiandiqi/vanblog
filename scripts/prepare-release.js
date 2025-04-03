@@ -69,12 +69,12 @@ ${latestChanges}
 
 ## 🔍 Upstream Information
 - Based on: mereithhh/vanblog
-- Maintainer: CornWorld
-- Repository: https://github.com/CornWorld/vanblog
+- Maintainer: qinxiandiqi
+- Repository: https://github.com/qinxiandiqi/vanblog
 
 ## 📦 Installation
 \`\`\`bash
-docker pull cornworld/vanblog:${currentVersion}
+docker pull qinxiandiqi/van-blog:${currentVersion}
 \`\`\`
 `;
   

@@ -7,14 +7,14 @@ while read -r l; do
     VERSION="$value"
   fi
 done <package.json
-                    tag="docker.io/cornworld/vanblog:v${VERSION}"
-tag1="registry.cn-beijing.aliyuncs.com/cornworld/vanblog:v${VERSION}"
-tag2="registry.cn-beijing.aliyuncs.com/cornworld/vanblog:latest"
+                    tag="docker.io/qinxiandiqi/van-blog:v${VERSION}"
+tag1="registry.cn-beijing.aliyuncs.com/qinxiandiqi/van-blog:v${VERSION}"
+tag2="registry.cn-beijing.aliyuncs.com/qinxiandiqi/van-blog:latest"
 
 echo v${VERSION}
-tag="docker.io/cornworld/vanblog:v${VERSION}"
-tag1="registry.cn-beijing.aliyuncs.com/cornworld/vanblog:v${VERSION}"
-tag2="registry.cn-beijing.aliyuncs.com/cornworld/vanblog:latest"
+tag="docker.io/qinxiandiqi/van-blog:v${VERSION}"
+tag1="registry.cn-beijing.aliyuncs.com/qinxiandiqi/van-blog:v${VERSION}"
+tag2="registry.cn-beijing.aliyuncs.com/qinxiandiqi/van-blog:latest"
 
 docker pull ${tag}
 docker tag ${tag} ${tag1}

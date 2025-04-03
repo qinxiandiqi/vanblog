@@ -1,7 +1,3 @@
-<h3 align="center">
-  <strong>📌此分支是由 <a href="https://github.com/CornWorld">CornWorld</a> 维护的分支版本📌</strong>  
-</h3>
-
 <p align="center">
 	<img src="/img/logo.svg" style="width: 200px"></img>
 </p>
@@ -9,13 +5,13 @@
 	<strong>VanBlog是一款简洁、实用、优雅的个人博客系统，支持全自动按需申请HTTPS证书、黑暗模式、移动端自适应和评论功能。它内置了流量统计和图床，并集成了评论系统。此外，VanBlog还具有无限的可扩展性，提供完备的后台管理面板，支持黑暗模式、移动端、一键上传剪贴板图片到图床，并带有强大的编辑器。</strong>
 </p>
 <p align="center">
-  <img src="https://img.shields.io/github/v/release/CornWorld/vanblog?display_name=tag" />
-  <img src="https://img.shields.io/docker/pulls/cornworld/vanblog" />
-  <img src="https://img.shields.io/github/stars/CornWorld/vanblog" />
-  <img src="https://img.shields.io/bitbucket/issues/CornWorld/vanblog" />
-  <img src="https://github.com/CornWorld/vanblog/workflows/release/badge.svg" />
+  <img src="https://img.shields.io/github/v/release/qinxiandiqi/vanblog?display_name=tag" />
+  <img src="https://img.shields.io/docker/pulls/qinxiandiqi/van-blog" />
+  <img src="https://img.shields.io/github/stars/qinxiandiqi/vanblog" />
+  <img src="https://img.shields.io/bitbucket/issues/qinxiandiqi/vanblog" />
+  <img src="https://github.com/qinxiandiqi/vanblog/workflows/release/badge.svg" />
   <img src="https://img.shields.io/badge/license-GPL%20v3-yellow.svg" />
-  <a href="https://github.com/CornWorld/vanblog"><img src="https://img.shields.io/badge/Derivative_Fork-CornWorld-critical?logo=git" /></a>
+  <a href="https://github.com/qinxiandiqi/vanblog"><img src="https://img.shields.io/badge/Derivative_Fork-qinxiandiqi-critical?logo=git" /></a>
 </p>
 
 <!-- <p align="center">
@@ -62,8 +58,8 @@
 
 ## Fork 说明
 
-- 这是由 [CornWorld](https://github.com/CornWorld) 维护的 VanBlog 分支版本
-- 与上游的差异报告: [查看实时对比](https://github.com/CornWorld/vanblog/compare/upstream-baseline..main)
+- 这是由 [Jianan](https://github.com/qinxiandiqi) 基于原作者[Mereithhh](https://github.com/Mereithhh)和维护者[CornWorld](https://github.com/CornWorld)的分支进行扩展开发的 VanBlog 版本
+- 与上游的差异报告: [查看实时对比](https://github.com/qinxiandiqi/vanblog/compare/upstream-baseline..main)
 
 ### TODO
 - [] 迁移所有包的依赖到最新版本
@@ -218,7 +214,7 @@ curl -L https://vanblog.mereith.com/vanblog.sh -o vanblog.sh && chmod +x vanblog
 - [ ] 国际化
 
 ## 问题反馈
-请提 [Issue](https://github.com/CornWorld/vanblog/issues/new/choose) ，如无特殊情况会在一天内解决。
+请提 [Issue](https://github.com/qinxiandiqi/vanblog/issues/new/choose) ，如无特殊情况会在一天内解决。
 
 <!-- ## 打赏
 

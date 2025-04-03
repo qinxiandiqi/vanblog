@@ -58,13 +58,13 @@ jobs:
           platforms: linux/amd64
           push: true
           tags: |
-            "docker.io/mereith/van-blog-website:${{ steps.get_version.outputs.VERSION }}"
+            "docker.io/qinxiandiqi/van-blog-website:${{ steps.get_version.outputs.VERSION }}"
 
       - name: 部署到集群
         uses: steebchen/kubectl@v2.0.0
         with: # defaults to latest kubectl binary version
           config: ${{ secrets.K8S_CONFIG_DATA }}
-          command: set image  deployment/vanblog-doc vanblog-doc=docker.io/mereith/van-blog-website:${{ steps.get_version.outputs.VERSION }}
+          command: set image  deployment/vanblog-doc vanblog-doc=docker.io/qinxiandiqi/van-blog-website:${{ steps.get_version.outputs.VERSION }}
 
       - name: 等待部署生效
         run: sleep 300

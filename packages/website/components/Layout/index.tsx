@@ -36,7 +36,7 @@ export default function (props: {
       console.log('✨ Welcome to VanBlog Website ✨');
       console.log('Version:', props?.option?.version || "unknown");
       // console.log('Website:', 'https://vanblog.mereith.com');
-      console.log('GitHub:', 'https://github.com/CornWorld/vanblog');
+      console.log('GitHub:', 'https://github.com/qinxiandiqi/vanblog');
       console.log('!!!', 'This is a fork of VanBlog, and is not the official website.', '!!!');
       console.log('If you like this project, please give it a star! 🌟');
       window.onbeforeunload = handleClose;

@@ -219,8 +219,8 @@ ENV VAN_BLOG_DEBUG_MODE="false"
 ENV VAN_BLOG_ADMIN_PROXY=""
 
 # 版本信息
-ARG CORN_VERSION
-ENV VAN_BLOG_VERSION=${CORN_VERSION}
+ARG VAN_BLOG_VERSIONS
+ENV VAN_BLOG_VERSION=${VAN_BLOG_VERSIONS}
 
 # 数据卷
 VOLUME ["/app/static", "/var/log", "/root/.config/caddy", "/root/.local/share/caddy"]
