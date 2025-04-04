@@ -14,12 +14,6 @@ const packageJson = JSON.parse(fs.readFileSync('package.json', 'utf8'));
 packageJson.version = currentVersion;
 fs.writeFileSync('package.json', JSON.stringify(packageJson, null, 2) + '\n');
 
-// Check version format
-if (!currentVersion.includes('-corn.')) {
-  console.error('Error: Version must include "-corn." suffix');
-  process.exit(1);
-}
-
 // Get upstream version
 try {
   execSync('git fetch upstream');
