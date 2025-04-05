@@ -1,14 +1,14 @@
 # 具体每个服务的去看 packages 里面的 Dockerfile
 # 这个是 all in one 的。
-FROM  node:18-alpine as ADMIN_BUILDER
+FROM node:22-alpine as ADMIN_BUILDER
 ENV NODE_OPTIONS='--max_old_space_size=4096 --openssl-legacy-provider'
 ENV EEE=production
 WORKDIR /app
 USER root
-RUN apk add --update python3 make g++ && rm -rf /var/cache/apk/*
+RUN apk update && apk add --no-cache python3 make g++ git && rm -rf /var/cache/apk/*
 COPY ./packages/admin/ ./
-RUN corepack enable
-RUN corepack prepare pnpm@latest --activate
+
+RUN npm install --global pnpm@8
 RUN pnpm config set network-timeout 600000 -g
 RUN pnpm config set registry https://registry.npmjs.org -g
 RUN pnpm config set fetch-retries 20 -g
@@ -17,22 +17,22 @@ RUN pnpm i
 # RUN sed -i 's/\/assets/\/admin\/assets/g' dist/admin/index.html
 RUN pnpm build
 
-FROM node:18 as SERVER_BUILDER
+FROM node:22-alpine as SERVER_BUILDER
 ENV NODE_OPTIONS=--max_old_space_size=4096
 WORKDIR /app
 COPY ./packages/server/ .
-RUN corepack enable
-RUN corepack prepare pnpm@latest --activate
+
+RUN npm install --global pnpm@8
 RUN pnpm config set network-timeout 600000 -g
-RUN pnpm config set registry https://registry.npmmirror.com -g
+RUN pnpm config set registry https://registry.npmjs.org -g
 RUN pnpm config set fetch-retries 20 -g
 RUN pnpm config set fetch-timeout 600000 -g
 RUN pnpm i
 RUN pnpm build
 
-FROM node:18-alpine AS WEBSITE_BUILDER
+FROM node:22-alpine AS WEBSITE_BUILDER
 WORKDIR /app
-RUN apk add --update python3 make g++ && rm -rf /var/cache/apk/*
+RUN apk update && apk add --no-cache python3 make g++ git && rm -rf /var/cache/apk/*
 COPY ./package.json ./
 COPY ./pnpm-lock.yaml ./
 COPY ./pnpm-workspace.yaml ./
@@ -44,29 +44,31 @@ ARG VAN_BLOG_BUILD_SERVER
 ENV VAN_BLOG_SERVER_URL ${VAN_BLOG_BUILD_SERVER}
 ARG VAN_BLOG_VERSIONS
 ENV VAN_BLOG_VERSION ${VAN_BLOG_VERSIONS}
-RUN corepack enable
-RUN corepack prepare pnpm@latest --activate
+RUN npm install --global pnpm@8
+
 RUN pnpm config set network-timeout 600000 -g
-RUN pnpm config set registry https://registry.npmmirror.com -g
+RUN pnpm config set registry https://registry.npmjs.org -g
 RUN pnpm config set fetch-retries 20 -g
 RUN pnpm config set fetch-timeout 600000 -g
-RUN pnpm install --frozen-lockfile
+
+# 修改构建脚本 pnpm 的版本不一致
+RUN pnpm i
 RUN pnpm build:website
 
 
 #运行容器
-FROM node:18-alpine AS RUNNER
+FROM node:22-alpine AS RUNNER
 WORKDIR /app
-RUN  apk add --no-cache --update tzdata caddy nss-tools libwebp-tools \
+RUN  apk add --no-cache --update tzdata caddy nss-tools libwebp-tools git \
   && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
   && echo "Asia/Shanghai" > /etc/timezone \
   && apk del tzdata
-RUN corepack enable
-RUN corepack prepare pnpm@latest --activate
-RUN pnpm config set network-timeout 600000 -g
-RUN pnpm config set registry https://registry.npmmirror.com -g
+RUN npm install --global pnpm@8
+
+RUN pnpm config set network-timeout 30000 -g
+RUN pnpm config set registry https://registry.npmjs.org -g
 RUN pnpm config set fetch-retries 20 -g
-RUN pnpm config set fetch-timeout 600000 -g
+RUN pnpm config set fetch-timeout 30000 -g
 # 复制 cli 工具
 WORKDIR /app/cli
 COPY ./packages/cli/ ./
@@ -101,6 +103,7 @@ COPY caddyTemplate.json /app/caddyTemplate.json
 WORKDIR /app
 COPY ./scripts/start.js ./
 COPY ./entrypoint.sh ./
+ENV HOSTNAME 127.0.0.1
 ENV PORT 3001
 # 增加版本
 ARG VAN_BLOG_VERSIONS

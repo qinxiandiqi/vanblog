@@ -9,9 +9,9 @@ while read -r l; do
 done <package.json
 
 echo v${VERSION}
-tag="docker.io/mereith/van-blog:v${VERSION}"
-tag1="registry.cn-beijing.aliyuncs.com/mereith/van-blog:v${VERSION}"
-tag2="registry.cn-beijing.aliyuncs.com/mereith/van-blog:latest"
+tag="docker.io/qinxiandiqi/van-blog:v${VERSION}"
+tag1="registry.cn-beijing.aliyuncs.com/qinxiandiqi/van-blog:v${VERSION}"
+tag2="registry.cn-beijing.aliyuncs.com/qinxiandiqi/van-blog:latest"
 docker rmi ${tag}
 docker pull ${tag}
 docker tag ${tag} ${tag1}

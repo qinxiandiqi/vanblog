@@ -185,7 +185,7 @@ pnpm build:test
 ```bash
 # 这个build server 是第一次打包镜像拿数据的，不写也行，那就得等启动容器后增量渲染生效了。
 VAN_BLOG_BUILD_SERVER="https://some.vanblog-server.com"
-docker build --build-arg VAN_BLOG_BUILD_SERVER=$VAN_BLOG_BUILD_SERVER -t mereith/van-blog:test .
+docker build --build-arg VAN_BLOG_BUILD_SERVER=$VAN_BLOG_BUILD_SERVER -t qinxiandiqi/van-blog:test .
 ```
 
 ## 文档发版

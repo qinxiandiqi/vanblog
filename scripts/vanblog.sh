@@ -4,7 +4,7 @@
 #   System Required: CentOS 7+ / Debian 8+ / Ubuntu 16+ /
 #     Arch 未测试
 #   Description: vanblog 安装脚本
-#   Github: https://github.com/mereithhh/van-blog
+#   Github: https://github.com/qinxiandiqi/vanblog
 #========================================================
 
 VANBLOG_BASE_PATH="/var/vanblog"
@@ -29,13 +29,13 @@ os_arch=""
 
 delete_old_images() {
   echo -e "> 删除旧镜像"
-  docker rmi -f mereith/van-blog-old
+  docker rmi -f qinxiandiqi/van-blog-old
 }
 
 retag_old_images() {
   echo -e "> 重命名旧镜像"
-  docker tag $(docker images | grep van-blog | awk '{print $3}') mereith/van-blog-old
-  # docker tag $(docker images | grep vanblog | awk '{print $3}') mereith/van-blog-old
+  docker tag $(docker images | grep van-blog | awk '{print $3}') qinxiandiqi/van-blog-old
+  # docker tag $(docker images | grep vanblog | awk '{print $3}') qinxiandiqi/van-blog-old
 }
 
 pre_check() {
@@ -393,7 +393,7 @@ uninstall_vanblog() {
   cd $VANBLOG_BASE_PATH &&
     docker-compose down -v
   rm -rf $VANBLOG_BASE_PATH
-  docker rmi -f mereith/van-blog:latest >/dev/null 2>&1
+  docker rmi -f qinxiandiqi/van-blog:latest >/dev/null 2>&1
   clean_all
 
   if [[ $# == 0 ]]; then
@@ -454,7 +454,7 @@ show_usage() {
 show_menu() {
   echo -e "
     ${green}VanBlog 管理脚本${plain} ${red}${VANBLOG_SCRIPT_VERSION}${plain}
-    --- https://github.com/mereithhh/van-blog ---
+    --- https://github.com/qinxiandiqi/vanblog ---
     ${green}1.${plain}  安装 VanBlog
     ${green}2.${plain}  修改配置
     ${green}3.${plain}  启动服务

@@ -147,3 +147,5 @@ staticFolder
 localBuild.sh
 log
 log/**
+
+dev

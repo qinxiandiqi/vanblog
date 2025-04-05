@@ -28,7 +28,7 @@ spec:
             type: ''
       containers:
         - name: van-blog
-          image: 'mereith/van-blog:latest'
+          image: 'qinxiandiqi/van-blog:latest'
           ports:
             - name: http-80
               containerPort: 80

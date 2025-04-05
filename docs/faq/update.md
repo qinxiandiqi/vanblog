@@ -8,7 +8,7 @@ order: 3
 
 您可以通过指定镜像的版本号来实现，比如您想回滚到 `v0.29.0`，那您可以修改编排中的：
 
-`mereith/van-blog:latest` 为 `mereith/van-blog:v0.29.0` ，然后运行：
+`qinxiandiqi/van-blog:latest` 为 `qinxiandiqi/van-blog:v0.29.0` ，然后运行：
 
 ```bash
 docker-compose down -v && docker-compose up -d

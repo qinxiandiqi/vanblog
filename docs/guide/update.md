@@ -44,9 +44,9 @@ order: -3
 # 关闭原有服务
 docker-compose down -v
 # 删除原有镜像
-docker rmi mereith/van-blog:latest
+docker rmi qinxiandiqi/van-blog:latest
 # 重新拉取最新镜像
-docker pull mereith/van-blog:latest
+docker pull qinxiandiqi/van-blog:latest
 # 重新启动服务
 docker-compose up -d
 ```
@@ -113,7 +113,7 @@ VanBlog 会在前台和后台的最下方展示版本信息。
 
 您可以通过指定镜像的版本号来实现，比如您想回滚到 `v0.29.0`，那您可以修改编排中的：
 
-`mereith/van-blog:latest` 为 `mereith/van-blog:v0.29.0` ，然后运行：
+`qinxiandiqi/van-blog:latest` 为 `qinxiandiqi/van-blog:v0.29.0` ，然后运行：
 
 ```bash
 docker-compose down -v && docker-compose up -d

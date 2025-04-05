@@ -42,8 +42,8 @@ jobs:
       #     registry: registry.cn-beijing.aliyuncs.com
       #     username: ${{ secrets.ALI_USER  }}
       #     password: ${{ secrets.ALI_PASSWORD  }}
-      # "registry.cn-beijing.aliyuncs.com/mereith/van-blog:latest"
-      # "registry.cn-beijing.aliyuncs.com/mereith/van-blog:${{ steps.get_version.outputs.VERSION }}"
+      # "registry.cn-beijing.aliyuncs.com/qinxiandiqi/van-blog:latest"
+      # "registry.cn-beijing.aliyuncs.com/qinxiandiqi/van-blog:${{ steps.get_version.outputs.VERSION }}"
 
       - name: Login to DockerHub
         uses: docker/login-action@v1
@@ -62,8 +62,8 @@ jobs:
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
-            "docker.io/mereith/van-blog:${{ steps.get_version.outputs.VERSION }}"
-            "docker.io/mereith/van-blog:latest"
+            "docker.io/qinxiandiqi/van-blog:${{ steps.get_version.outputs.VERSION }}"
+            "docker.io/qinxiandiqi/van-blog:latest"
 
       - name: 安装 pnpm
         uses: pnpm/action-setup@v2
@@ -84,18 +84,18 @@ jobs:
         with:
           body_path: CHANGE.md
 
-      - name: updateVersionToApiServer
-        run: |
-          curl -X POST "${{ secrets.VERSIONURL }}${{ steps.get_version.outputs.VERSION }}"
+      # - name: updateVersionToApiServer
+      #   run: |
+      #     curl -X POST "${{ secrets.VERSIONURL }}${{ steps.get_version.outputs.VERSION }}"
 
-      - name: 部署到集群
-        uses: steebchen/kubectl@v2.0.0
-        with: # defaults to latest kubectl binary version
-          config: ${{ secrets.K8S_CONFIG_DATA }}
-          command: set image  deployment/van-blog van-blog=docker.io/mereith/van-blog:${{ steps.get_version.outputs.VERSION }}
+      # - name: 部署到集群
+      #   uses: steebchen/kubectl@v2.0.0
+      #   with: # defaults to latest kubectl binary version
+      #     config: ${{ secrets.K8S_CONFIG_DATA }}
+      #     command: set image  deployment/van-blog van-blog=docker.io/qinxiandiqi/van-blog:${{ steps.get_version.outputs.VERSION }}
 
-      - name: 部署 demo 到集群
-        uses: steebchen/kubectl@v2.0.0
-        with: # defaults to latest kubectl binary version
-          config: ${{ secrets.K8S_CONFIG_DATA }}
-          command: set image  deployment/blog-demo van-blog=docker.io/mereith/van-blog:${{ steps.get_version.outputs.VERSION }}
+      # - name: 部署 demo 到集群
+      #   uses: steebchen/kubectl@v2.0.0
+      #   with: # defaults to latest kubectl binary version
+      #     config: ${{ secrets.K8S_CONFIG_DATA }}
+      #     command: set image  deployment/blog-demo van-blog=docker.io/qinxiandiqi/van-blog:${{ steps.get_version.outputs.VERSION }}

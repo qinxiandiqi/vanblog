@@ -5,11 +5,11 @@
 	<strong>VanBlog是一款简洁、实用、优雅的个人博客系统，支持全自动按需申请HTTPS证书、黑暗模式、移动端自适应和评论功能。它内置了流量统计和图床，并集成了评论系统。此外，VanBlog还具有无限的可扩展性，提供完备的后台管理面板，支持黑暗模式、移动端、一键上传剪贴板图片到图床，并带有强大的编辑器。</strong>
 </p>
 <p align="center">
-  <img src="https://img.shields.io/github/v/release/mereithhh/van-blog?display_name=tag" />
-  <img src="https://img.shields.io/docker/pulls/mereith/van-blog" />
-  <img src="https://img.shields.io/github/stars/mereithhh/van-blog" />
-  <img src="https://img.shields.io/bitbucket/issues/mereithhh/van-blog" />
-  <img src="https://github.com/mereithhh/van-blog/workflows/release/badge.svg" />
+  <img src="https://img.shields.io/github/v/release/qinxiandiqi/vanblog?display_name=tag" />
+  <img src="https://img.shields.io/docker/pulls/qinxiandiqi/van-blog" />
+  <img src="https://img.shields.io/github/stars/qinxiandiqi/vanblog" />
+  <img src="https://img.shields.io/bitbucket/issues/qinxiandiqi/vanblog" />
+  <img src="https://github.com/qinxiandiqi/vanblog/workflows/release/badge.svg" />
   <img src="https://img.shields.io/badge/license-GPL%20v3-yellow.svg" />
 </p>
 <p align="center">
@@ -232,7 +232,7 @@ PS：如果打赏时请备注捐赠者，如有遗漏请联系我添加（有时
 
 ## Star 趋势图
 
-[![Star History Chart](https://api.star-history.com/svg?repos=mereithhh/van-blog&type=Date)](https://star-history.com/#mereithhh/van-blog&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=qinxiandiqi/vanblog&type=Date)](https://star-history.com/#qinxiandiqi/vanblog&Date)
 
 ## LightHouse 截图
 
