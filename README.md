@@ -23,6 +23,10 @@
 
 ![前台-白色](/img/合并.png)
 
+## 仓库说明
+
+本仓库修复了原 [Mereithhh/van-blog](https://github.com/Mereithhh/vanblog) 的一些问题，并增加一些功能。主要是为了适配我自己的需求，所以会有一些不一样的地方。
+
 ## 特性
 
 - [x] 快到极致的响应速度，Lighthouse 接近满分。
