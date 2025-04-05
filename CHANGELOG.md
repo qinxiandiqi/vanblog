@@ -1,4 +1,54 @@
 # Changelog
+### [0.54.1-nan.0](https://github.com/qinxiandiqi/vanblog/compare/v0.54.0...v0.54.1-nan.0) (2025-04-05)
+
+
+### 🚀 Chore | 构建/工程依赖/工具
+
+* 一键脚本使用 docker compose 代替 docker-compose ([472aeda](https://github.com/qinxiandiqi/vanblog/commit/472aedab07d097dd3ec03a5c5ff1e31287dda0a1))
+* docker 安装脚本缓存一份，防止无法加载 ([f300cad](https://github.com/qinxiandiqi/vanblog/commit/f300cadf864e39ad94d7f01f11f72f8a15d82977))
+* introduce prettier v3 ([dbf3bf9](https://github.com/qinxiandiqi/vanblog/commit/dbf3bf95ad2e9c46cd3878042b93c0fbbc0a116b))
+* remove lerna and bump deps ([9573e06](https://github.com/qinxiandiqi/vanblog/commit/9573e06e3d706617906a0dfa8a9ea783b32af39c))
+* script -> v0.3.1 ([aeeef47](https://github.com/qinxiandiqi/vanblog/commit/aeeef47130b0fe9eb911e4803cb05a31f7b298b1))
+* tweaks ([52a6c14](https://github.com/qinxiandiqi/vanblog/commit/52a6c1433c5818b8b5cf56f6c372a93d91d7df84))
+* update docs ([a97bef7](https://github.com/qinxiandiqi/vanblog/commit/a97bef722908ecf73648ecf102f5cac843c97593))
+* use corepack in docker ([5282cb7](https://github.com/qinxiandiqi/vanblog/commit/5282cb77321333eac3c443bd1e1ff59969faa7c4))
+
+
+### 💄 Styles | 风格
+
+* unify editorconfig ([ee29b57](https://github.com/qinxiandiqi/vanblog/commit/ee29b57b9592099784516ae5add6e316e23f5d27))
+
+
+### ✨ Features | 新功能
+
+* 前台标签页增加按照字母顺序排序 ([#327](https://github.com/qinxiandiqi/vanblog/issues/327)) ([28be24b](https://github.com/qinxiandiqi/vanblog/commit/28be24bbd61ada06b16f2dc10a2d19380e9f570e))
+* 增加一个 reset waline 脚本 ([d39fb41](https://github.com/qinxiandiqi/vanblog/commit/d39fb4167367b16c3bd470114717df9e11e33057))
+
+
+### ✏️ Documentation | 文档
+
+* 更新谁在使用 [#323](https://github.com/qinxiandiqi/vanblog/issues/323) ([c6ab6e3](https://github.com/qinxiandiqi/vanblog/commit/c6ab6e366f719e44fee3ce569da942102543cd36))
+* 更新文档 ([a706673](https://github.com/qinxiandiqi/vanblog/commit/a706673387c6e5a436b365db3e5dace0679e902d))
+* 更新文档 ([a77f4d6](https://github.com/qinxiandiqi/vanblog/commit/a77f4d6981688772de36bd22de385bc6f573cfbb))
+* 更新文档 ([1d94964](https://github.com/qinxiandiqi/vanblog/commit/1d949643569c8c4f7e700021fc224207d8c2acc6))
+* 更新文档 ([392b2bd](https://github.com/qinxiandiqi/vanblog/commit/392b2bdca765b4436946de53ad2e719cee061bdd))
+* 更新文档 ([dc64fe9](https://github.com/qinxiandiqi/vanblog/commit/dc64fe9634bd39308dfdaf62484124ed1f3f6ac2))
+* 更新文档 ([20ca4cf](https://github.com/qinxiandiqi/vanblog/commit/20ca4cf515f75d482a36346f63eb311bb104b74c))
+* 更新样例网站 ([25d4141](https://github.com/qinxiandiqi/vanblog/commit/25d414117b127bca0f851a80b2d40259efa1b3c0))
+* 去掉一些失效的样例网站 ([61c2b6a](https://github.com/qinxiandiqi/vanblog/commit/61c2b6a33ff74c510b1deb01ce884fab128b84b7))
+* 添加一些样例网站 ([4593d99](https://github.com/qinxiandiqi/vanblog/commit/4593d9921eb06c89b0993ced87547b4174bb1194))
+* 文档中补充阿里云镜像源地址 ([5babb70](https://github.com/qinxiandiqi/vanblog/commit/5babb70a187ac261c9ab9947dd231b4556d057e8))
+* 增加一批样例 ([b503f4d](https://github.com/qinxiandiqi/vanblog/commit/b503f4dcf2cd2643401c1432f0967ac302ecc395))
+* remove redirection ([c2faea8](https://github.com/qinxiandiqi/vanblog/commit/c2faea8284129ae49f4cb46d75977dc9490c787b))
+* trigger update ([eabb386](https://github.com/qinxiandiqi/vanblog/commit/eabb38650cc1d0cc99c3896a190f3113a1bf7f47))
+* Update README.md ([de34679](https://github.com/qinxiandiqi/vanblog/commit/de34679cdece685f1b6dc70fcd6e83ae9dc71fc6))
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* 修复老脚本无法更新到 v0.54.0 的问题 ([1c88466](https://github.com/qinxiandiqi/vanblog/commit/1c88466657214554c330268a67874e45c9e9895b))
+* 一件更新脚本失效 [#334](https://github.com/qinxiandiqi/vanblog/issues/334) [#330](https://github.com/qinxiandiqi/vanblog/issues/330) ([c651c92](https://github.com/qinxiandiqi/vanblog/commit/c651c928332cb014cbe4655c4665695627aebf1c))
+* getVersion 接口设置超时 [#483](https://github.com/qinxiandiqi/vanblog/issues/483) ([6ba6b44](https://github.com/qinxiandiqi/vanblog/commit/6ba6b44b99ffeb7f302e6a383e9549ee17b80854))
 
 ## [0.54.0](https://github.com/Mereithhh/vanblog/compare/v0.53.0...v0.54.0) (2023-06-27)
 
