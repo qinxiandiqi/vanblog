@@ -24,6 +24,7 @@
     "release-major": "standard-version --release-as major",
     "release-minor": "standard-version --release-as minor",
     "release-patch": "standard-version --release-as patch",
+    "release-nan": "node scripts/releaseNan.js && standard-version --skip.bump",
     "sync-aliyun": "bash scripts/sync-aliyuncs.sh",
     "webhook": "node scripts/webhook.js"
   },
